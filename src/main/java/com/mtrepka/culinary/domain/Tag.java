@@ -15,7 +15,7 @@ public class Tag {
     @GeneratedValue
     @Id
     private int id;
-    private String name;
+    private String t_name;
 
     @ManyToMany
     @JoinTable(name = "tag_recipe",

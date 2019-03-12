@@ -4,25 +4,25 @@ package com.mtrepka.culinary.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "recipe")
 @Data
 @NoArgsConstructor
 public class Recipe {
     @GeneratedValue
     @Id
     private int id;
+    private String r_name;
+    private String r_description;
 
-    @ManyToMany(mappedBy = "recipies")
-    private List<Tag> tags  = new ArrayList<>();
-    @ManyToMany(mappedBy = "recipies")
-    private List<Ingredient> ingredients  = new ArrayList<>();
-    @ManyToMany(mappedBy = "recipies")
-    private List<Category> categories  = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "quantity_recipe",
+            joinColumns = @JoinColumn(name = "fk_quantity"),
+            inverseJoinColumns = @JoinColumn(name = "fk_recipe")
+    )
+    private List<Quantity> Quantities = new ArrayList<>();
 }
