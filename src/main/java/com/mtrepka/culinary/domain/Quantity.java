@@ -14,6 +14,7 @@ public class Quantity {
     @Id
     private int id;
     private double qValue;
+    private String qType;
 
 
     @ManyToOne(fetch = FetchType.EAGER)

@@ -1,9 +1,9 @@
 package com.mtrepka.culinary.repository;
 
-import com.mtrepka.culinary.domain.Tag;
+import com.mtrepka.culinary.domain.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TagRepository extends JpaRepository<Tag,Integer> {
+public interface IngredientRepository extends JpaRepository<Ingredient,Integer> {
 }

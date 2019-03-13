@@ -2,11 +2,11 @@ package com.mtrepka.culinary.configuration;
 
 
 import com.mtrepka.culinary.domain.Category;
+import com.mtrepka.culinary.domain.Ingredient;
 import com.mtrepka.culinary.domain.Recipe;
 import com.mtrepka.culinary.service.CategoryService;
 import com.mtrepka.culinary.service.IngredientService;
 import com.mtrepka.culinary.service.RecipeService;
-import com.mtrepka.culinary.service.TagService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,6 @@ import java.util.List;
 @CrossOrigin
 public class AppRest {
     private final RecipeService recipeService;
-    private final TagService tagService;
     private final IngredientService ingredientService;
     private final CategoryService categoryService;
 
@@ -43,6 +42,16 @@ public class AppRest {
     @GetMapping("/recipe/{id}")
     Recipe getRecipeById(@PathVariable("id") int id) {
         return recipeService.getById(id);
+    }
+
+    @GetMapping("/ingredient/")
+    List<Ingredient> getAllIngredients() {
+        return ingredientService.getAll();
+    }
+
+    @GetMapping("/ingredient/{id}")
+    Ingredient getIngredientById(@PathVariable("id") int id) {
+        return ingredientService.getById(id);
     }
 
 }
