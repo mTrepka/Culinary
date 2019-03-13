@@ -26,5 +26,5 @@ public class Category {
             joinColumns =  @JoinColumn(name = "fk_category"),
             inverseJoinColumns = @JoinColumn(name = "fk_recipe")
     )
-    private List<Recipe> recipies  = new ArrayList<>();
+    private List<Recipe> recipes  = new ArrayList<>();
 }

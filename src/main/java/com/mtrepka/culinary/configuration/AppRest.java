@@ -2,6 +2,7 @@ package com.mtrepka.culinary.configuration;
 
 
 import com.mtrepka.culinary.domain.Category;
+import com.mtrepka.culinary.domain.Recipe;
 import com.mtrepka.culinary.service.CategoryService;
 import com.mtrepka.culinary.service.IngredientService;
 import com.mtrepka.culinary.service.RecipeService;
@@ -32,6 +33,16 @@ public class AppRest {
     @GetMapping("/category/{id}")
     Category getCategoryById(@PathVariable("id") int id) {
         return categoryService.getById(id);
+    }
+
+    @GetMapping("/recipe/")
+    List<Recipe> getAllRecipes() {
+        return recipeService.getAll();
+    }
+
+    @GetMapping("/recipe/{id}")
+    Recipe getRecipeById(@PathVariable("id") int id) {
+        return recipeService.getById(id);
     }
 
 }

@@ -22,7 +22,7 @@ public class Tag {
             joinColumns =  @JoinColumn(name = "fk_tag"),
             inverseJoinColumns = @JoinColumn(name = "fk_recipe")
     )
-    private List<Recipe> recipies  = new ArrayList<>();
+    private List<Recipe> recipes  = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "tag_category",
